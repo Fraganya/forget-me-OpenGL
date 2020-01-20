@@ -1,0 +1,59 @@
+Flood-Fill(node,target-color,replacement-color)
+
+1. if target-color is equal to replacement-color , return;
+2. if the color of the node is not equal to target-color , return;
+3. set the color of the node to replacement-color
+4. perfom Flood-Fill(one step to south of node, target-color,replacement-color)
+   perfom Flood-Fill(one step to north of node, target-color,replacement-color)
+   perfom Flood-Fill(one step to west of node, target-color,replacement-color)
+   perfom Flood-Fill(one step to east of node, target-color,replacement-color) 
+5. return;
+
+
+target-color = default color / the color you will find.
+replacement-color = the color you want to change to
+
+Methods of Implementation :
+1. 4-connected pixel
+2. 8-connected pixel
+
+4-connected pixel:
+-> you check 4 pixels adjacent to the current pixel, that is N(top),South(bottom),W(left),E(right)
+-> so you fill the area with 4-connected pixels.
+
+A problem with this algorithm in 4-connected pixels is that not all pixels are filled.
+The solution is to use 8-connected pixels which fills adjacent diagnoal pixel positions such as:
+(x+1,y+1)
+
+From Youtube Script
+========================
+BASIC CONCEPT:
+Flood fill algorithm is useful in cases where there no single color boundary for the polygon, i.e. the boundary has multiple colors.
+In flood fill algorithm instead of filling color till you encounter a specific boundary color you just fill the pixels with default color.
+It is used in the "bucket" fill tool of paint programs to fill connected, similarly-colored areas with a different color
+Algorithm:
+Flood-fill (node, target-color, replacement-color): 
+1. If target-color is equal to replacement-color, return. 
+2. If the color of node is not equal to target-color, return. 
+3. Set the color of node to replacement-color. 
+4. Perform Flood-fill (one step to the south of node, target-color, replacement-color).
+     Perform Flood-fill (one step to the north of node, target-color, replacement-color).
+     Perform Flood-fill (one step to the west of node, target-color, replacement-color).
+     Perform Flood-fill (one step to the east of node, target-color, replacement-color). 
+5. Return.
+Methods of Implementation:
+There are two methods in which the Flood-Fill Algorithm can be implemented:
+4-connected pixel
+8-connected pixel
+
+4-connected pixel
+In 4 connected pixel method you check 4 pixels adjacent to the current pixel, namely towards the North(top), South(bottom), west(left), East(right).
+So you fill the area with 4-connected pixel method by following these steps
+Step 1: First initialize the 4 values namely x, y, Fill-color & Default-color. Where x and y are co-ordinate positions of the initial interior pixel we start the flood fill algorithm & Fill-color is the color we want to fill and Default-color is the default color of the interior pixel
+Step 2: If the color of node is not equal to default-color, return.
+Step 3: Set the color of node to replacement-color.
+Step 4: Set the color of node to the south of node to replacement-color. 
+Step 5: Set the color of node to the north of node to replacement-color. 
+Step 6: Set the color of node to the east of node to replacement-color. 
+Step 7: Set the color of node to the west of node to replacement-color. 
+Step 8: Exit.

@@ -1,0 +1,60 @@
+
+
+From youtube script
+=======================================================
+In this lecture of Computer Graphics we will learn about boundary fill algorithm in computer graphics.
+Basic Concept
+In Boundary fill Algorithm the basic concept is filling the color in closed area by starting at a point inside a region and paint the interior outward  towards the boundary.
+One requirement for Boundary Fill algorithm is that the boundary has to have a single color.
+Working:
+In Boundary fill algorithm, you start from a point inside the region and fill the color interior outward towards the boundary pixel by pixel.
+So the process is that you check the default color of the pixel before filling, if the color is not boundary color, then you fill it with the fill color, and move to the next pixel and check for the same criteria till you encounter the boundary colored pixel or the boundary.
+METHODS OF IMPLEMENTATION:
+There are two methods in which the Boundary Fill Algorithm can be implemented:
+4-connected pixel
+8-connected pixel
+4-connected pixel:In 4 connected pixel method you check 4 pixels adjacent to the current pixel, namely towards the left, right, top & bottom.
+So you fill the area with 4-connected pixel method by following these steps
+Step 1: First initialize the 4 values namely x, y, Fill-color & Default-color. Where x and y are co-ordinate positions of the initial interior pixel we start the boundary fill algorithm & Fill-color is the color we want to fill and Default-color is the default color of the interior pixel
+Step 2: Define the value of the boundary pixel color or Boundary color.
+Step 3: Now check if the current pixel is of Default-color and if Yes then Repeat Step 4 and step 5 till the boundary pixels are reached.
+Step 4: Change the default color with the fill color at the current pixel.
+Step 5: Repeat step 3 and step 4 for the neighboring 4 pixels.
+Step 6: Exit.
+Code for 4 connected:
+                           void boundaryFill4  (int x, int y,  int fill, int boundary, int default) 
+                            {
+                              int current; 
+                               current =  getpixel  (x, y); 
+                                 if ((current ! =   boundary) &&  (current = default))
+                                       { 
+                                        setPixel (x, y, fill);
+                                        boundaryFill4 (x+1, y, fill, default); 
+                                        boundaryFill4  (x-1, y, fill, default); 
+                                        boundaryFill4  (x, y+1, fill, default); 
+                                        boundaryFill4  (x, y-1, fill, default); 
+                                       } 
+                             }
+Problem in 4-connected:
+There is a problem with this technique that 4-connected pixels technique cannot fill all the pixels.
+8-connected pixel:To solve the problems that can occur in 4-connected pixel method, a new method was introduced called 8-connected pixel.
+SO in 8-connected pixel method we instead of filling just 4 adjacent pixels we fill also the adjacent diagonal pixels positions, such as 
+    (x  +  1, y  +  1).
+Code for 8 connected:
+ void boundaryFill8  (int x, int y,  int fill, int boundary, int default) 
+                            {
+                              int current; 
+                               current =  getpixel  (x, y); 
+                                 if ((current ! =   boundary) &&  (current = default))
+                                       { 
+                                        setPixel (x, y, fill);
+                                        boundaryFill8 (x+1, y, fill, default); 
+                                        boundaryFill8 (x-1, y, fill, default); 
+                                        boundaryFill8 (x, y+1, fill, default); 
+                                        boundaryFill8 (x, y-1, fill, default); 
+                                        boundaryFill8 (x+1, y+1, fill, default);
+                                        boundaryFill8 (x+1, y-1, fill, default);
+                                        boundaryFill8 (x-1, y+1, fill, default);
+                                        boundaryFill8 (x-1, y-1, fill, default);
+
+                                    

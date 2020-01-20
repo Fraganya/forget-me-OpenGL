@@ -1,0 +1,8 @@
+Scan Line Polygon filling
+-> an algorithm used for solid color filling in polygons.
+
+
+Steps:
+1. Find the intersections of the scan line with all edges of the polygon
+2. Sort the intersections by increasing x-coordinate thus from left to right
+3. make pairs of the intersections and fill in color within all the pixels inside the pair.
