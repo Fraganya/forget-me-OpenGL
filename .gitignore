@@ -1,3 +1,4 @@
+*GLUT/*.exe
 *.o
 */Debug/*
 */Release/*
